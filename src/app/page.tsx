@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, Search, ArrowRight } from "lucide-react";
+import { Users, Search, ArrowRight, Mail, MessageSquare } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { getCases, placeholderImages } from '@/lib/data';
@@ -164,6 +164,29 @@ export default async function Home() {
                 data-ai-hint={placeholderImages[1].imageHint}
               />
           </div>
+        </div>
+      </section>
+
+      <section className="w-full py-12 md:py-24 lg:py-32 border-t">
+        <div className="container px-4 md:px-6 text-center">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
+                Feedback & Support
+            </h2>
+            <p className="mx-auto max-w-[700px] text-foreground/80 md:text-xl/relaxed mt-4">
+                We're here to help. If you have any questions, encounter issues, or want to provide feedback, please reach out.
+            </p>
+            <div className="mt-8 flex justify-center gap-4">
+                <Button asChild variant="outline">
+                    <Link href="mailto:support@reunite.com">
+                        <Mail className="mr-2 h-4 w-4" /> Email Support
+                    </Link>
+                </Button>
+                 <Button asChild variant="outline">
+                    <Link href="#">
+                        <MessageSquare className="mr-2 h-4 w-4" /> Feedback Form
+                    </Link>
+                </Button>
+            </div>
         </div>
       </section>
     </div>
