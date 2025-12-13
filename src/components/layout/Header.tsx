@@ -6,6 +6,14 @@ import Image from "next/image";
 import AppIcon from "@/app/icon.svg";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { Siren } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
 
 export function Header() {
   const pathname = usePathname();
@@ -39,7 +47,21 @@ export function Header() {
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-end">
-          {/* Future auth button can go here */}
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                 <Button asChild variant="destructive" size="icon">
+                  <a href="tel:911">
+                    <Siren className="h-5 w-5" />
+                    <span className="sr-only">Emergency Call</span>
+                  </a>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Contact Local Authorities</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
       </div>
     </header>
