@@ -59,7 +59,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:max-w-none mt-12">
-            <Card className="text-center">
+            <Card className="text-center transition-transform duration-300 ease-in-out hover:scale-105">
               <CardHeader>
                 <CardTitle>1. Report a Sighting</CardTitle>
                 <CardDescription>
@@ -70,7 +70,7 @@ export default async function Home() {
                 <Users className="h-12 w-12 mx-auto text-primary" />
               </CardContent>
             </Card>
-            <Card className="text-center">
+            <Card className="text-center transition-transform duration-300 ease-in-out hover:scale-105">
               <CardHeader>
                 <CardTitle>2. Search Cases</CardTitle>
                 <CardDescription>
@@ -81,7 +81,7 @@ export default async function Home() {
                 <Search className="h-12 w-12 mx-auto text-primary" />
               </CardContent>
             </Card>
-            <Card className="text-center">
+            <Card className="text-center transition-transform duration-300 ease-in-out hover:scale-105">
               <CardHeader>
                 <CardTitle>3. Verify & Connect</CardTitle>
                 <CardDescription>
@@ -183,11 +183,11 @@ export default async function Home() {
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <Mail className="h-6 w-6 text-primary"/>
-                  <a href="mailto:support@reunite.com" className="hover:underline">support@reunite.com</a>
+                  <a href="mailto:support@reunite.com" className="hover:underline transition-transform duration-300 ease-in-out hover:scale-105">support@reunite.com</a>
                 </div>
                 <div className="flex items-center gap-4">
                   <Phone className="h-6 w-6 text-primary"/>
-                  <a href="tel:+15551234567" className="hover:underline">+1 (555) 123-4567</a>
+                  <a href="tel:+15551234567" className="hover:underline transition-transform duration-300 ease-in-out hover:scale-105">+1 (555) 123-4567</a>
                 </div>
               </div>
             </div>

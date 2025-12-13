@@ -39,7 +39,7 @@ export function CaseCard({ caseReport }: CaseCardProps) {
   }
 
   return (
-    <Card className="flex flex-col h-full overflow-hidden hover:shadow-lg transition-shadow duration-300">
+    <Card className="flex flex-col h-full overflow-hidden hover:shadow-lg transition-all duration-300 ease-in-out hover:scale-105 group">
       <CardHeader className="p-0 relative">
         <Image
           src={caseReport.photoUrl}
