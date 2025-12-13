@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, Search, ArrowRight, Mail, MessageSquare, Phone, User as UserIcon } from "lucide-react";
+import { Users, Search, ArrowRight, Mail, MessageSquare, Phone, User as UserIcon, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { getCases, placeholderImages } from '@/lib/data';
@@ -10,10 +10,38 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default async function Home() {
   const allCases = await getCases();
   const recentCases = allCases.filter(c => c.status === 'open').slice(0, 3);
+  
+  const testimonials = [
+    {
+      name: "Sarah L.",
+      quote: "When my little boy wandered off at the park, I was terrified. Someone found him and reported it on Reunite. We were reconnected within an hour. I'm so grateful for this service.",
+      avatar: placeholderImages[6].imageUrl,
+      avatarHint: placeholderImages[6].imageHint,
+    },
+    {
+      name: "David Chen",
+      quote: "My elderly father, who has dementia, got lost. A kind stranger used this app to help us find him. The privacy features made us feel secure throughout the process.",
+      avatar: placeholderImages[7].imageUrl,
+      avatarHint: placeholderImages[7].imageHint,
+    },
+    {
+      name: "Maria Rodriguez",
+      quote: "I found a lost child who was scared and couldn't remember her parents' number. Reporting it on Reunite was simple and quick. The authorities contacted me shortly after.",
+      avatar: placeholderImages[8].imageUrl,
+      avatarHint: placeholderImages[8].imageHint,
+    },
+     {
+      name: "Tom W.",
+      quote: "An incredible platform. The verification process is thorough, which gave me peace of mind when I submitted a claim for my missing cousin. Highly recommend.",
+      avatar: placeholderImages[9].imageUrl,
+      avatarHint: placeholderImages[9].imageHint,
+    },
+  ];
 
   return (
     <div className="flex flex-col items-center">
@@ -170,6 +198,48 @@ export default async function Home() {
         </div>
       </section>
 
+      <section className="w-full py-12 md:py-24 lg:py-32">
+        <div className="container px-4 md:px-6">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">
+              We've reunited 30+ families to date
+            </h2>
+            <p className="max-w-[900px] mx-auto text-foreground/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Hear from the people who have used Reunite to bring their loved ones home.
+            </p>
+          </div>
+          <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-2 lg:max-w-none mt-12">
+            {testimonials.map((testimonial) => (
+              <Card key={testimonial.name} className="transition-transform duration-300 ease-in-out hover:scale-105">
+                <CardHeader>
+                  <div className="flex items-start gap-4">
+                    <Avatar className="h-14 w-14 border-2 border-primary">
+                      <AvatarImage src={testimonial.avatar} alt={testimonial.name} data-ai-hint={testimonial.avatarHint}/>
+                      <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                    </Avatar>
+                    <div className="flex-1">
+                      <CardTitle className="text-xl">{testimonial.name}</CardTitle>
+                      <div className="flex text-accent mt-1">
+                        <Star className="h-5 w-5 fill-current" />
+                        <Star className="h-5 w-5 fill-current" />
+                        <Star className="h-5 w-5 fill-current" />
+                        <Star className="h-5 w-5 fill-current" />
+                        <Star className="h-5 w-5 fill-current" />
+                      </div>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <blockquote className="text-lg text-foreground/90 border-l-4 border-primary pl-4 italic">
+                    {testimonial.quote}
+                  </blockquote>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="w-full py-12 md:py-24 lg:py-32 border-t">
         <div className="container px-4 md:px-6">
           <div className="grid gap-10 lg:grid-cols-2">
@@ -219,3 +289,4 @@ export default async function Home() {
       </section>
     </div>
   );
+}
