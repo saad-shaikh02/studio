@@ -1,11 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, Search } from "lucide-react";
+import { Users, Search, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { placeholderImages } from '@/lib/data';
+import { getCases, placeholderImages } from '@/lib/data';
+import { CaseCard } from "@/components/cases/CaseCard";
+import { Suspense } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
-export default function Home() {
+export default async function Home() {
+  const allCases = await getCases();
+  const recentCases = allCases.filter(c => c.status === 'open').slice(0, 3);
+
   return (
     <div className="flex flex-col items-center">
       <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 text-center bg-primary/10">
@@ -95,6 +101,37 @@ export default function Home() {
                 </svg>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-secondary/50">
+        <div className="container px-4 md:px-6">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Recent Cases</h2>
+            <p className="max-w-[900px] mx-auto text-foreground/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              These are the most recently filed open cases. Your help could make a difference.
+            </p>
+          </div>
+          <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:max-w-none mt-12">
+            <Suspense fallback={
+              <>
+                <Skeleton className="h-[400px] w-full" />
+                <Skeleton className="h-[400px] w-full" />
+                <Skeleton className="h-[400px] w-full" />
+              </>
+            }>
+            {recentCases.map((caseReport) => (
+              <CaseCard key={caseReport.id} caseReport={caseReport} />
+            ))}
+            </Suspense>
+          </div>
+          <div className="text-center mt-12">
+            <Button asChild>
+                <Link href="/search">
+                    View All Cases <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+            </Button>
           </div>
         </div>
       </section>
