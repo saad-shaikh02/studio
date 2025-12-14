@@ -24,12 +24,12 @@ export function SearchControls({ searchTerm, setSearchTerm, ageFilter, setAgeFil
           className="pl-10"
         />
       </div>
-      <Select value={ageFilter} onValueChange={setAgeFilter}>
+      <Select value={ageFilter} onValueChange={(value) => setAgeFilter(value === "all" ? "" : value)}>
         <SelectTrigger>
           <SelectValue placeholder="Filter by age range" />
         </SelectTrigger>
         <SelectContent>
-            <SelectItem value="">All Ages</SelectItem>
+            <SelectItem value="all">All Ages</SelectItem>
           {ageRanges.map((age) => (
             <SelectItem key={age} value={age}>{age}</SelectItem>
           ))}
