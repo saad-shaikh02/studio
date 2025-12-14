@@ -19,7 +19,7 @@ export default async function Home() {
   const testimonials = [
     {
       name: "Sarah L.",
-      quote: "When my little boy wandered off at the park, I was terrified. Someone found him and reported it on Reunite. We were reconnected within an hour. I'm so grateful for this service.",
+      quote: "When my little boy wandered off at the park, I was terrified. Someone found him and reported it on LostLink. We were reconnected within an hour. I'm so grateful for this service.",
       avatar: placeholderImages[6].imageUrl,
       avatarHint: placeholderImages[6].imageHint,
     },
@@ -31,7 +31,7 @@ export default async function Home() {
     },
     {
       name: "Maria Rodriguez",
-      quote: "I found a lost child who was scared and couldn't remember her parents' number. Reporting it on Reunite was simple and quick. The authorities contacted me shortly after.",
+      quote: "I found a lost child who was scared and couldn't remember her parents' number. Reporting it on LostLink was simple and quick. The authorities contacted me shortly after.",
       avatar: placeholderImages[8].imageUrl,
       avatarHint: placeholderImages[8].imageHint,
     },
@@ -80,7 +80,7 @@ export default async function Home() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">How Reunite Works</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">How LostLink Works</h2>
               <p className="max-w-[900px] text-foreground/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Our simple and secure process ensures safety and privacy are the top priorities.
               </p>
@@ -205,7 +205,7 @@ export default async function Home() {
               We've reunited 30+ families to date
             </h2>
             <p className="max-w-[900px] mx-auto text-foreground/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Hear from the people who have used Reunite to bring their loved ones home.
+              Hear from the people who have used LostLink to bring their loved ones home.
             </p>
           </div>
           <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-2 lg:max-w-none mt-12">
@@ -253,7 +253,7 @@ export default async function Home() {
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <Mail className="h-6 w-6 text-primary"/>
-                  <a href="mailto:support@reunite.com" className="hover:underline transition-transform duration-300 ease-in-out hover:scale-105">support@reunite.com</a>
+                  <a href="mailto:support@lostlink.com" className="hover:underline transition-transform duration-300 ease-in-out hover:scale-105">support@lostlink.com</a>
                 </div>
                 <div className="flex items-center gap-4">
                   <Phone className="h-6 w-6 text-primary"/>
