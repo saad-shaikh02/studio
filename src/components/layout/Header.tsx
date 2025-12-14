@@ -28,8 +28,8 @@ export function Header() {
       <div className="container flex h-16 items-center">
         <div className="mr-4 flex">
           <Link href="/" className="mr-6 flex items-center space-x-2 transition-transform duration-300 ease-in-out hover:scale-105 group">
-            <Image src={AppIcon} alt="LostLink logo" width={24} height={24} className="text-primary" />
-            <span className="font-bold font-headline text-lg group-hover:text-foreground">LostLink</span>
+            <Image src={AppIcon} alt="LostLink logo" width={32} height={32} className="text-primary" />
+            <span className="font-bold font-headline text-xl group-hover:text-foreground">LostLink</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             {navLinks.map((link) => (
