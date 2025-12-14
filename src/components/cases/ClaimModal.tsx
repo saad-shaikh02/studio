@@ -1,13 +1,13 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState, useEffect } from "react";
+import { useFormStatus } from "react-dom";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { submitClaim } from "@/lib/actions";
-import { useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 
 type ClaimModalProps = {
@@ -18,7 +18,7 @@ type ClaimModalProps = {
 
 export function ClaimModal({ isOpen, setIsOpen, caseId }: ClaimModalProps) {
   const initialState = { message: null, errors: {} };
-  const [state, dispatch] = useFormState(submitClaim, initialState);
+  const [state, dispatch] = useActionState(submitClaim, initialState);
   const { toast } = useToast();
   
   useEffect(() => {

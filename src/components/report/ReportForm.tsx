@@ -1,6 +1,7 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { submitReport } from "@/lib/actions";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -11,7 +12,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 export function ReportForm() {
   const initialState = { message: null, errors: {} };
-  const [state, dispatch] = useFormState(submitReport, initialState);
+  const [state, dispatch] = useActionState(submitReport, initialState);
   
   function SubmitButton() {
     const { pending } = useFormStatus();
